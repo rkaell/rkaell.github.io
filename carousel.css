@@ -93,5 +93,6 @@ body {
 .fundo {
   background-color: rgba(0,10,20,0.7);
   padding-left: 20px;
+  padding-right: 20px;
   border-radius: 20px;
 }
