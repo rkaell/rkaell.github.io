@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:ror="http://rorweb.com/0.1/" >
+<channel>
+  <title>ROR Sitemap for https://rkaell.github.io/</title>
+  <link>https://rkaell.github.io/</link>
+
+<item>
+     <link>https://rkaell.github.io/</link>
+     <title>Rhuann Kaell TI Rio</title>
+     <description>Soluções em TI, informática Rio de Janeiro, Manutenção de Celulares Desenvolvimento WEB Python</description>
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>0</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>https://rkaell.github.io/form.html</link>
+     <title>Rhuann Kaell TI Rio</title>
+     <description>Soluções em TI, informática Rio de Janeiro, Manutenção de Celulares Desenvolvimento WEB Python</description>
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>1</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>https://rkaell.github.io/prog.html</link>
+     <title>Rhuann Kaell TI Rio</title>
+     <description>Soluções em TI, informática Rio de Janeiro, Manutenção de Celulares Desenvolvimento WEB Python</description>
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>1</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>https://rkaell.github.io/index.html</link>
+     <title>Rhuann Kaell TI Rio</title>
+     <description>Soluções em TI, informática Rio de Janeiro, Manutenção de Celulares Desenvolvimento WEB Python</description>
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>2</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+</channel>
+</rss>
+  

@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="Soluções em TI, informática Rio de Janeiro, Manutenção de Celulares Desenvolvimento WEB Python">
     <meta name="author" content="Rhuann Kaell Souza Nascimento">
+    <meta property="og:image" content="rkaell.github.io/imagens/contatok.jpg">
+    <meta property="og:image:type" content="image/jpeg">
+    <meta property="og:image:width" content="800">
+    <meta property="og:image:height" content="600">
     <link rel="icon" href="imagens/favicon.png">
 
     <title>Rhuann Kaell TI Rio</title>
@@ -27,11 +31,11 @@
         <div class="collapse navbar-collapse" id="navbarCollapse">
           <ul class="navbar-nav mr-auto">
             <li class="nav-item">
-              <a class="nav-link" href="hard.html" target="__blank">Manutenção e Hardware<span class="sr-only">(current)</span></a>
+              <a class="nav-link" href="form.html" target="__blank">Sugestões<span class="sr-only">(current)</span></a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="prog.html" target="__blank">Programação Back/Front-End</a>
-            </li>
+            <!--<li class="nav-item">
+              <a class="nav-link" href="prog.html" target="__blank">Sugestões</a>
+            </li>-->
           </ul>
           <!--<form class="form-inline mt-2 mt-md-0">
             <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
@@ -110,7 +114,7 @@
               <img class="rounded-circle" src="imagens/fone.jpg" alt="Generic placeholder image" width="140" height="140">
               <h2>Mobile</h2>
               <p>Desenvolver para smartphone é ótimo, porém um hora ou outra ele sempre leva uma queda ou tombo. Faço reparos em geral, celulares tablets e notebooks com qualidade e preço justo</p>
-              <p><a class="btn btn-secondary" href="hard.html" role="button">Contato</a></p>
+              <p><button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#myModal" role="button">Contato</button></p>
             </div><!-- /.col-lg-4 -->
             <div class="col-lg-4">
               <img class="rounded-circle" src="imagens/py.jpg" alt="Generic placeholder image" width="140" height="140">
@@ -119,27 +123,51 @@
               <p><a class="btn btn-secondary" target="__blank" href="https://www.python.org/" role="button">Mais Sobre</a></p>
             </div><!-- /.col-lg-4 -->
           </div><!-- /.row -->
+          <!-- Modal -->
+          <div id="myModal" class="modal fade" role="dialog">
+            <div class="modal-dialog modal-lg">
+              <!-- Modal content-->
+              <div class="modal-content">
+                <div class="modal-body mdkaell">
+                  <span><img class="mdkaell" src="imagens/contatok.jpg"></span>
+                </div>
+                <div class="modal-footer">
+                  <a class="btn btn-md" id="compartilhar" href="whatsapp://send?text=Entre em Contato: https://rkaell.github.io"><img style="border-radius:5px" src="imagens/compartilhar.gif" width="35px" height="35px" alt="compartilhar"/>Compartilhar</a>
+                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+              </div>
+            </div>
+          </div>
           <!-- START THE FEATURETTES -->
           <hr class="featurette-divider">
           <div class="row featurette">
-            <div class="col-md-7">
-                  <h2 class="featurette-heading" align="center">Organizador de Fotos</h2>
-                  <p class="lead"><br>Fotos em pastas bagunçadas? gostaria de organiza-las</p><p class="lead" align="left">Programa simples desenvolvido para separar fotos em pasta por ano e mês que foi criada!</p>                
+            <div class="col-md-6">
+                  <h2 class="text_foto" align="center">Organizador de Fotos</h2>
+                  <p class="lead"><br>Fotos em pastas bagunçadas? gostaria de organiza-las</p><p class="lead" align="left">Programa simples desenvolvido para separar fotos em pasta por ano e mês que foi criada, facilitando a organização e recordações dos momentos.</p>                
             </div>
-            <div class="col-md-5">
-              <img class="fundo__text img-fluid mx-auto" align="center" src="imagens/organizador.jpg" alt="Generic placeholder image" width="500px" height="400px" /><br>
+            <div class="col-md-6">
+              <img class="fundo__text featurette-image img-fluid mx-auto" align="center" src="imagens/organizador.jpg" alt="Generic placeholder image" id="organizador" width="500px" height="400px" /><br>
               <br><a class="btn btn-lg btn-primary" href="https://github.com/rkaell/organizador/raw/master/Organizador.rar" target="__blank" role="button">Download para Windows 7</a>
-              <a href="whatsapp://send?text=Organizador de Fotos, Windows7 :https://rkaell.github.io"><img style="border-radius:5px" src="imagens/compartilhar.jpg" width="55px" height="45px" alt="compartilhar"/></a>
+              <a class="btn btn-md" id="compartilhar" href="whatsapp://send?text=Organizador de Fotos, Windows7 :https://rkaell.github.io"><img style="border-radius:5px" src="imagens/compartilhar.gif" width="35px" height="35px" alt="compartilhar"/>Compartilhar</a>
+              <!-- INICIO FORMULARIO BOTAO PAGSEGURO -->
+              <form id="doar" align="left" action="https://pagseguro.uol.com.br/checkout/v2/donation.html" method="post">
+                <!-- NÃO EDITE OS COMANDOS DAS LINHAS ABAIXO -->
+                <input type="hidden" name="currency" value="BRL" />
+                <input type="hidden" name="receiverEmail" value="cbkaell@gmail.com" />
+                <input type="hidden" name="iot" value="button" />
+                <input type="image" src="https://stc.pagseguro.uol.com.br/public/img/botoes/doacoes/205x30-doar.gif" name="submit" alt="Pague com PagSeguro - é rápido, grátis e seguro!" />
+              </form>
+              <!-- FINAL FORMULARIO BOTAO PAGSEGURO -->
             </div>
           </div>
           <hr class="featurette-divider">
           <div class="row featurette">
+              <div class="col-md-5">
+                  <img class="fundo__text featurette-image img-fluid mx-auto" src="imagens/capa1.jpg" alt="Generic placeholder image">
+                </div>            
               <div class="col-md-7">
                 <h2 class="featurette-heading">Dedicação é tudo</h2>
                 <p class="lead"><br>Focado no desenvolvimento de projetos, ultilizando as ferramentas de TI para soluções de problemas e suporte ao usuário.</p>
-              </div>
-              <div class="col-md-5">
-                <img class="fundo__text featurette-image img-fluid mx-auto" src="imagens/capa1.jpg" alt="Generic placeholder image">
               </div>
             </div>
             <hr class="featurette-divider">
@@ -165,15 +193,13 @@
       </footer>
 
     </main>
-
-
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="jqslim.js"></script>
     <script>window.jQuery || document.write('<script src="hol.js"><\/script>')</script>
     <script src="pop.js"></script>
-    <script src="/bootstrap/js/bootstrap.min.js"></script>
+    <script src="bootstrap/js/bootstrap.js"></script>
     <!-- Just to make our placeholder images work. Don't actually copy the next line! -->
     <script src="holder.js"></script>
   </body>
