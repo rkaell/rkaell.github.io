@@ -166,3 +166,8 @@ h3 .organizador {
 .compartilhar:hover{
   background-color: green;
   color: white;
+}
+iframe{
+  padding: 40px;
+  border-radius: 20px;
+}
