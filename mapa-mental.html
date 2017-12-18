@@ -1,0 +1,390 @@
+<!doctype html>
+<html lang="pt-br">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="description" content="Projeto crescer aprendendo">
+        <meta name="author" content="Rhuann Kaell Souza Nascimento">    
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.5/jspdf.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.js"></script>
+    </head>
+    <body>
+        <!--<script language="javascript"> 
+   
+            function getPDF(){
+                var doc = new jsPDF();
+                var specialElementHandlers = {
+                    '#oculto': function (element, renderer) {
+                        return true;
+                    }
+                };
+                
+                $('#pdf').click(function () {
+                    doc.fromHTML($('#central2').html(), 15, 15, {
+                        'width': 1000,
+                            'elementHandlers': specialElementHandlers
+                    });
+                    doc.save('sample-file.pdf');
+                });
+            }
+        </script>-->
+        <script type="text/javascript">
+            n = 0;
+            function allowDrop(ev) {
+                ev.preventDefault();
+            }
+    
+            function drag(ev) {
+                ev.dataTransfer.setData("ID", ev.target.id);    
+            }
+    
+            function dropLixeira(ev) {
+                ev.preventDefault();
+                var data = ev.dataTransfer.getData("ID");
+                //console.log(ev.target.id);
+                var foto = document.getElementById(data);
+                foto.parentNode.removeChild(foto);
+            }
+
+            function dropClone(ev) {
+                var data = ev.dataTransfer.getData("ID");
+                var clone = document.getElementById(data).cloneNode(true);
+                ev.target.appendChild(clone).classList.add("fixo");
+                clone.id = "clone"+n;
+                n = n + 1;
+            }
+
+            function dropAll(ev) {
+                var data = ev.dataTransfer.getData("ID");
+                //console.log(document.getElementById(data).name);
+                if(document.getElementById(data).name == "arraste"){
+                    //console.log("if");
+                    var clone = document.getElementById(data).cloneNode(true);
+                    ev.target.appendChild(clone).classList.add("fixo");
+                    clone.id = "clone"+n;
+                    clone.name = "clone"+n;
+                    n = n + 1;
+                }else{  
+                    //console.log("else");
+                    //console.log(ev);
+                    ev.preventDefault();
+                    ev.target.appendChild(document.getElementById(data)).classList.add("fixo");
+                }
+            }
+
+            function dropEnd(acao){
+                    acao.dataTransfer.clearData("ID");
+                    return true;
+            }
+            function printTela(div){
+                    window.print();
+                    window.close();
+            }
+            function reset(){
+                location.reload();
+            }
+        </script>
+        <style>
+            div#central1{
+                border-style: solid;
+                border-color: gray;
+                border-width: 2px; 
+                width: 1000px;
+                height: 260px;
+                overflow: auto;
+                padding: 20px;
+                margin-bottom: -40px; 
+            }
+            .fix{
+                margin-top: -40px;
+                margin-left: -40px;
+                position: absolute;
+            }
+            div#central2{ 
+                border-style: solid;
+                border-color: gray;
+                border-width: 2px; 
+                width: 1000px;
+                height: 400px;
+                overflow: auto;
+                padding: 20px;
+            }
+            div#central1:hover{ 
+                border-style: solid;
+                border-color:rgba(0, 110, 240, 0.3);
+                border-width: 5px;
+            }
+            div#central1 > img, div#central1 > span, .fixo, td{
+                height: 60px;
+                width: 50px;
+            }
+
+            img#lixeira{
+                width: 90px;
+                height: 70px;
+                align-items: center;
+                align-content: center;
+                align-self: center;
+                padding: none;
+                background-color: none;
+                border-style: none;
+                border-color:none;
+                position: none;
+            }
+            .lixeira{
+                background-color: none;
+                border-radius: 20px;
+                position: absolute;
+                margin: 5px;
+            }
+            .lixeira:hover{
+                padding: none;
+                background-color: none;
+                border-style: none;
+                border-color:none;
+                background-color: none;
+            }
+            img:hover, span:hover{
+                padding: 5px;
+                background-color: rgba(0, 110, 240, 0.3);
+                border-style: solid;
+                border-color: gray;
+                border-width: 2px;
+            }
+            .blue{
+                color: blue;
+                background-color: rgba(0, 0, 240, 0.3);
+                padding-left: 5px;
+                padding-right: 5px;
+                font-size: 20px;       
+            }
+            .red{
+                color: red;
+                background-color: rgba(240, 0, 0, 0.3);
+                padding-left: 5px;
+                padding-right: 5px;
+                font-size: 20px; 
+            }
+            .green{
+                color: green;
+                background-color: rgba(0, 240, 0, 0.3);
+                padding-left: 5px;
+                padding-right: 5px;
+                font-size: 20px; 
+            }
+            button{
+                border-radius: 30px 10px;
+                color: blanchedalmond;
+                background-color:rgba(0, 20, 250, 0.8);
+                width: 150px;
+                height: 40px;
+                font-style: bold;
+                font-size: 18px;
+            }
+            .capsula{
+                height: 100px;
+                width: 90px;
+            }
+            /*table, th, td{
+                border: 1px solid black;
+                padding: none;
+                margin: none;
+            }*/
+            td{
+                text-align: center;
+                align-items: center;
+            }
+            div > img#ancora{
+                width: 25%;
+                height: 15%;
+            }
+            div > img#ancora:hover{
+                padding: none;
+                margin: none;
+                background-color: white;
+                border: none;
+                border-style: none;
+            }
+            @media print{
+                .ocultar{
+                    display: none;
+                }
+                .no-ocultar{
+                    display: table;
+                    overflow: visible;
+                }
+            }
+        </style>
+        <conteiner class="container">
+            <div class="row-md-12 ocultar" id="central1">
+                <img name="arraste" id="1" src="//static.wixstatic.com/media/9a118c_4e376b6751ab4a46a052292fc7f83d69~mv2.jpg" draggable="true" ondragstart="drag(event)">
+                <img name="arraste" id="2" src="//static.wixstatic.com/media/9a118c_ebb7f4b4bc9442f19de4adf823b4de6f~mv2.jpg" draggable="true" ondragstart="drag(event)">
+                <img name="arraste" id="3" src="//static.wixstatic.com/media/9a118c_fbf8d47260f74597bd40590b9b66e10c~mv2.jpg" draggable="true" ondragstart="drag(event)">
+                <img name="arraste" id="4" src="//static.wixstatic.com/media/9a118c_ad298abe45f446f1a3bdda4bd104fed8~mv2.jpg" draggable="true" ondragstart="drag(event)">
+                <img name="arraste" id="5" src="//static.wixstatic.com/media/9a118c_a68f396c66464070b685495e3d9ce9e8~mv2.png" draggable="true" ondragstart="drag(event)">
+                <img name="arraste" id="6" src="//static.wixstatic.com/media/9a118c_81c7b8a8205c411c984e76f004ae535a~mv2.jpg" draggable="true" ondragstart="drag(event)">
+                <img name="arraste" id="7" src="//static.wixstatic.com/media/9a118c_4f41cb4c3cb744bc828eed3addf7b445~mv2.png" draggable="true" ondragstart="drag(event)">
+                <img name="arraste" id="8" src="//static.wixstatic.com/media/9a118c_0b76f3575d6543269483509179a7b683~mv2.png" draggable="true" ondragstart="drag(event)">
+                <img name="arraste" id="9" src="//static.wixstatic.com/media/9a118c_da00674a295b4e1dbf006654b877dd26~mv2.jpg" draggable="true" ondragstart="drag(event)">
+                <img name="arraste" id="10" src="//static.wixstatic.com/media/9a118c_1b19c9aac6c94eaa8c799a4d9862e3bd~mv2.jpg" draggable="true" ondragstart="drag(event)">
+                <img name="arraste" id="11" src="//static.wixstatic.com/media/9a118c_7ac25fbd2f8c46fbab3a7321b3185607~mv2.jpg" draggable="true" ondragstart="drag(event)">
+                <img name="arraste" id="12" src="//static.wixstatic.com/media/9a118c_4e9320f9a7de4383a11a5b29c3eafc50~mv2.jpg" draggable="true" ondragstart="drag(event)">
+                <img name="arraste" id="13" src="//static.wixstatic.com/media/9a118c_8635a26972ed4875a3573a5a72172d08~mv2.jpg" class="img" draggable="true" ondragstart="drag(event)">
+                <img name="arraste" id="14" src="//static.wixstatic.com/media/9a118c_ee693c4516c3442a88bc0867028bd823~mv2.png" draggable="true" ondragstart="drag(event)">
+                <img name="arraste" id="15" src="//static.wixstatic.com/media/9a118c_399534abe34e4ea1877ed7dfe72135ca~mv2.png" draggable="true" ondragstart="drag(event)">
+                <img name="arraste" id="16" src="//static.wixstatic.com/media/9a118c_1ae3e1b1de62452794fbcd15ef21bf0a~mv2.png" draggable="true" ondragstart="drag(event)">
+                <img name="arraste" id="17" src="//static.wixstatic.com/media/9a118c_32dfbe5bd4de41da932eebc6fd6d6cd4~mv2.png" draggable="true" ondragstart="drag(event)">
+                <img name="arraste" id="18" src="//static.wixstatic.com/media/9a118c_89ae99a222af4b93a18b7281c557d206~mv2.png" draggable="true" ondragstart="drag(event)">
+                <img name="arraste" id="19" src="//static.wixstatic.com/media/9a118c_10919ab9c5274cdca83541e99bee4c60~mv2.png" draggable="true" ondragstart="drag(event)">
+                <img name="arraste" id="20" src="//static.wixstatic.com/media/9a118c_eb11a8d98df74913aa038ebdd6a560fd~mv2.png" draggable="true" ondragstart="drag(event)">
+                <img name="arraste" id="21" src="//static.wixstatic.com/media/9a118c_2a41f91bd7a44b38b72c61fdc6fec165~mv2.png" draggable="true" ondragstart="drag(event)">
+                <img name="arraste" id="22" src="//static.wixstatic.com/media/9a118c_399846df04404474a76a45dde707225e~mv2.png" draggable="true" ondragstart="drag(event)">
+                <img name="arraste" id="23" src="//static.wixstatic.com/media/9a118c_1e69a4dcac2f4164b3fcfa166c239b4f~mv2.png" draggable="true" ondragstart="drag(event)">
+                <img name="arraste" id="24" src="//static.wixstatic.com/media/9a118c_c03251caf60f47eb86a0000c8bac7595~mv2.png" draggable="true" ondragstart="drag(event)">
+                <img name="arraste" id="25" src="//static.wixstatic.com/media/9a118c_7a5d763a516d4b8b8f213b772181fae8~mv2.png" draggable="true" ondragstart="drag(event)">
+                <img name="arraste" id="26" src="//static.wixstatic.com/media/9a118c_04c826f31655433eacc82d77e168ba99~mv2.png" draggable="true" ondragstart="drag(event)">
+                <img name="arraste" id="27" src="//static.wixstatic.com/media/9a118c_0e9dee3863e3473b9bdcb746567ccbef~mv2.png" draggable="true" ondragstart="drag(event)">
+                <img name="arraste" id="28" src="//static.wixstatic.com/media/9a118c_42665fbdd1784cd8b508b67374d23ad6~mv2.png" draggable="true" ondragstart="drag(event)">
+                <img name="arraste" id="29" src="//static.wixstatic.com/media/9a118c_624eac04547a4d45a5a1484896c6cbcb~mv2.png" draggable="true" ondragstart="drag(event)">
+                <img name="arraste" id="30" src="//static.wixstatic.com/media/9a118c_330285e592b84fa7909dcfc5850d39b3~mv2.png" draggable="true" ondragstart="drag(event)">
+                <img name="arraste" id="31" src="//static.wixstatic.com/media/9a118c_a92cfb4231a649acb359be3b18d52e4a~mv2.png" draggable="true" ondragstart="drag(event)">
+                <img name="arraste" id="32" src="//static.wixstatic.com/media/9a118c_849c0dd0ba564ff7b18a31c6458f6067~mv2.png" draggable="true" ondragstart="drag(event)">
+                <img name="arraste" id="33" src="//static.wixstatic.com/media/9a118c_653ce213364a49a19fb2832b51a5d0f8~mv2.png" draggable="true" ondragstart="drag(event)">                
+                <span name="arraste" id="name1" class="red img" draggable="true" ondragstart="drag(event)">Escola</span>
+                <span name="arraste" id="name2" class="red img" draggable="true" ondragstart="drag(event)">Família</span>
+                <span name="arraste" id="name3" class="red img" draggable="true" ondragstart="drag(event)">Casa</span>
+                <span name="arraste" id="name4" class="red img" draggable="true" ondragstart="drag(event)">Igreja</span>
+                <span name="arraste" id="name5" class="red img" draggable="true" ondragstart="drag(event)">Amigos</span>
+                <span name="arraste" id="name6" class="red img" draggable="true" ondragstart="drag(event)">Lazer</span>
+                <span name="arraste" id="name7" class="green img" draggable="true" ondragstart="drag(event)">Alimentação</span>
+                <span name="arraste" id="name8" class="green img" draggable="true" ondragstart="drag(event)">Atividades Físicas</span>
+                <span name="arraste" id="name9" class="green img" draggable="true" ondragstart="drag(event)">Estudar</span>
+                <span name="arraste" id="name10" class="green img" draggable="true" ondragstart="drag(event)">Brincar</span>
+                <span name="arraste" id="name11" class="blue img" draggable="true" ondragstart="drag(event)">Continuidade</span>
+                <span name="arraste" id="name12" class="blue img" draggable="true" ondragstart="drag(event)">Cooperação</span>
+                <span name="arraste" id="name13" class="blue img" draggable="true" ondragstart="drag(event)">Relacionamento</span>
+                <span name="arraste" id="name14" class="blue img" draggable="true" ondragstart="drag(event)">Empatia</span>
+                <span name="arraste" id="name15" class="blue img" draggable="true" ondragstart="drag(event)">Disciplina</span>
+                <span name="arraste" id="name16" class="blue img" draggable="true" ondragstart="drag(event)">Reconhecimento</span>
+                <span name="arraste" id="name17" class="blue img" draggable="true" ondragstart="drag(event)">Superação</span>
+                <span name="arraste" id="name18" class="blue img" draggable="true" ondragstart="drag(event)">Administrar Conflitos</span>
+                <span name="arraste" id="name19" class="blue img" draggable="true" ondragstart="drag(event)">Comunicação</span>
+            </div>
+            <br><br>
+            <div class="row-md-12 no-ocultar" id="central2">
+            
+                <table>
+                    <tr>
+                        <td>
+                            <img class="ocultar fix" id="lixeira" src="//static.wixstatic.com/media/9a118c_861fa893478c4f54ba87df2c5b586f40~mv2.png?dn=lixeira.png" align="left" alt="lixeira" ondrop="dropLixeira(event)" ondragover="allowDrop(event)">
+                        </td>
+                        <td ondrop="dropAll(event)" ondragover="allowDrop(event)"></td>
+                        <td ondrop="dropAll(event)" ondragover="allowDrop(event)"></td>
+                        <td ondrop="dropAll(event)" ondragover="allowDrop(event)"></td>
+                        <td ondrop="dropAll(event)" ondragover="allowDrop(event)"></td>
+                        <td ondrop="dropAll(event)" ondragover="allowDrop(event)"></td>
+                        <td ondrop="dropAll(event)" ondragover="allowDrop(event)"></td>
+                        <td ondrop="dropAll(event)" ondragover="allowDrop(event)"></td>
+                        <td ondrop="dropAll(event)" ondragover="allowDrop(event)"></td>
+                        <td ondrop="dropAll(event)" ondragover="allowDrop(event)"></td>
+                        <td ondrop="dropAll(event)" ondragover="allowDrop(event)"></td>
+                        <td ondrop="dropAll(event)" ondragover="allowDrop(event)"></td>
+                        <td ondrop="dropAll(event)" ondragover="allowDrop(event)"></td>
+                        <td ondrop="dropAll(event)" ondragover="allowDrop(event)"></td>
+                        <td ondrop="dropAll(event)" ondragover="allowDrop(event)"></td>
+                        <td ondrop="dropAll(event)" ondragover="allowDrop(event)"></td>
+                        <td ondrop="dropAll(event)" ondragover="allowDrop(event)"></td>
+                        <td ondrop="dropAll(event)" ondragover="allowDrop(event)"></td>
+                    </tr>
+                    <tr>
+                        <td ondrop="dropAll(event)" ondragover="allowDrop(event)"></td>
+                        <td ondrop="dropAll(event)" ondragover="allowDrop(event)"></td>
+                        <td ondrop="dropAll(event)" ondragover="allowDrop(event)"></td>
+                        <td ondrop="dropAll(event)" ondragover="allowDrop(event)"></td>
+                        <td ondrop="dropAll(event)" ondragover="allowDrop(event)"></td>
+                        <td ondrop="dropAll(event)" ondragover="allowDrop(event)"></td>
+                        <td ondrop="dropAll(event)" ondragover="allowDrop(event)"></td>
+                        <td ondrop="dropAll(event)" ondragover="allowDrop(event)"></td>
+                        <td ondrop="dropAll(event)" ondragover="allowDrop(event)"></td>
+                        <td ondrop="dropAll(event)" ondragover="allowDrop(event)"></td>
+                        <td ondrop="dropAll(event)" ondragover="allowDrop(event)"></td>
+                        <td ondrop="dropAll(event)" ondragover="allowDrop(event)"></td>
+                        <td ondrop="dropAll(event)" ondragover="allowDrop(event)"></td>
+                        <td ondrop="dropAll(event)" ondragover="allowDrop(event)"></td>
+                        <td ondrop="dropAll(event)" ondragover="allowDrop(event)"></td>
+                        <td ondrop="dropAll(event)" ondragover="allowDrop(event)"></td>
+                        <td ondrop="dropAll(event)" ondragover="allowDrop(event)"></td>
+                        <td ondrop="dropAll(event)" ondragover="allowDrop(event)"></td>
+                    </tr>
+                    <tr>
+                        <td ondrop="dropAll(event)" ondragover="allowDrop(event)"></td>
+                        <td ondrop="dropAll(event)" ondragover="allowDrop(event)"></td>
+                        <td ondrop="dropAll(event)" ondragover="allowDrop(event)"></td>
+                        <td ondrop="dropAll(event)" ondragover="allowDrop(event)"></td>
+                        <td ondrop="dropAll(event)" ondragover="allowDrop(event)"></td>
+                        <td ondrop="dropAll(event)" ondragover="allowDrop(event)"></td>
+                        <td ondrop="dropAll(event)" ondragover="allowDrop(event)"></td>
+                        <td ondrop="dropAll(event)" ondragover="allowDrop(event)"></td>
+                        <td ondrop="dropAll(event)" ondragover="allowDrop(event)"></td>
+                        <td ondrop="dropAll(event)" ondragover="allowDrop(event)"></td>
+                        <td ondrop="dropAll(event)" ondragover="allowDrop(event)"></td>
+                        <td ondrop="dropAll(event)" ondragover="allowDrop(event)"></td>
+                        <td ondrop="dropAll(event)" ondragover="allowDrop(event)"></td>
+                        <td ondrop="dropAll(event)" ondragover="allowDrop(event)"></td>
+                        <td ondrop="dropAll(event)" ondragover="allowDrop(event)"></td>
+                        <td ondrop="dropAll(event)" ondragover="allowDrop(event)"></td>
+                        <td ondrop="dropAll(event)" ondragover="allowDrop(event)"></td>
+                        <td ondrop="dropAll(event)" ondragover="allowDrop(event)"></td>
+                    </tr>
+                    <tr>
+                        <td ondrop="dropAll(event)" ondragover="allowDrop(event)"></td>
+                        <td ondrop="dropAll(event)" ondragover="allowDrop(event)"></td>
+                        <td ondrop="dropAll(event)" ondragover="allowDrop(event)"></td>
+                        <td ondrop="dropAll(event)" ondragover="allowDrop(event)"></td>
+                        <td ondrop="dropAll(event)" ondragover="allowDrop(event)"></td>
+                        <td ondrop="dropAll(event)" ondragover="allowDrop(event)"></td>
+                        <td ondrop="dropAll(event)" ondragover="allowDrop(event)"></td>
+                        <td ondrop="dropAll(event)" ondragover="allowDrop(event)"></td>
+                        <td ondrop="dropAll(event)" ondragover="allowDrop(event)"></td>
+                        <td ondrop="dropAll(event)" ondragover="allowDrop(event)"></td>
+                        <td ondrop="dropAll(event)" ondragover="allowDrop(event)"></td>
+                        <td ondrop="dropAll(event)" ondragover="allowDrop(event)"></td>
+                        <td ondrop="dropAll(event)" ondragover="allowDrop(event)"></td>
+                        <td ondrop="dropAll(event)" ondragover="allowDrop(event)"></td>
+                        <td ondrop="dropAll(event)" ondragover="allowDrop(event)"></td>
+                        <td ondrop="dropAll(event)" ondragover="allowDrop(event)"></td>
+                        <td ondrop="dropAll(event)" ondragover="allowDrop(event)"></td>
+                        <td ondrop="dropAll(event)" ondragover="allowDrop(event)"></td>
+                    </tr>
+                    <tr>
+                        <td ondrop="dropAll(event)" ondragover="allowDrop(event)"></td>
+                        <td ondrop="dropAll(event)" ondragover="allowDrop(event)"></td>
+                        <td ondrop="dropAll(event)" ondragover="allowDrop(event)"></td>
+                        <td ondrop="dropAll(event)" ondragover="allowDrop(event)"></td>
+                        <td ondrop="dropAll(event)" ondragover="allowDrop(event)"></td>
+                        <td ondrop="dropAll(event)" ondragover="allowDrop(event)"></td>
+                        <td ondrop="dropAll(event)" ondragover="allowDrop(event)"></td>
+                        <td ondrop="dropAll(event)" ondragover="allowDrop(event)"></td>
+                        <td ondrop="dropAll(event)" ondragover="allowDrop(event)"></td>
+                        <td ondrop="dropAll(event)" ondragover="allowDrop(event)"></td>
+                        <td ondrop="dropAll(event)" ondragover="allowDrop(event)"></td>
+                        <td ondrop="dropAll(event)" ondragover="allowDrop(event)"></td>
+                        <td ondrop="dropAll(event)" ondragover="allowDrop(event)"></td>
+                        <td ondrop="dropAll(event)" ondragover="allowDrop(event)"></td>
+                        <td ondrop="dropAll(event)" ondragover="allowDrop(event)"></td>
+                        <td ondrop="dropAll(event)" ondragover="allowDrop(event)"></td>
+                        <td ondrop="dropAll(event)" ondragover="allowDrop(event)"></td>
+                        <td ondrop="dropAll(event)" ondragover="allowDrop(event)"></td>
+                    </tr>
+                </table>
+            </div>
+        </conteiner>
+        <button class="ocultar"  align="right" type="button" onclick="printTela('central2')">Imprimir</button>
+        <button class="ocultar"  align="left" type="button" onclick="reset()">Limpar</button>
+        <br><br><div><img src="//static.wixstatic.com/media/9a118c_b0fbb924365945319d1cd6f8267ce17c~mv2.jpg?dn=ancora+oficial.jpg" id="ancora" onclick="printTela('central2')"></div>
+    </body>
