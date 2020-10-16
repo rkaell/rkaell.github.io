@@ -6,7 +6,8 @@ body {
   padding-top: 3rem;
   padding-bottom: 3rem;
   color: #5a5a5a;
-  background-image: url("imagens/back.jpg");
+  background-color: #5a5a5a;
+  /*background-image: url("imagens/back.jpg");*/
   background-size: 50% 50%; 
 }
 
@@ -33,6 +34,7 @@ h3 .organizador {
 .carousel-item {
   height: 32rem;
   background-color: #777;
+  opacity: 0.7;
 }
 .carousel-item > img {
   position: absolute;
