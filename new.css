@@ -22,9 +22,15 @@ a {
     text-decoration: none;
     color: hsl(0, 0%, 100%);
     opacity: 100%;
+    padding-right: 1rem;
 }
 
-a:hover
+a:hover{
+    background-color: hsl(51, 94%, 32%);
+    color: hsl(0, 0%, 0%);
+    padding: 1rem;
+    opacity: 90%;
+}
 
 nav {
     font-size: 16px;
@@ -77,6 +83,6 @@ img {
 
 div#home {
     padding-top: 5rem;
-    background-image: url(/rkaell.github.io/imagens/transferir.jpeg);
+    background-image: url(imagens/transferir.jpeg);
     background-size: 100%;
 }
