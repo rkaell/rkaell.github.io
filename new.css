@@ -5,6 +5,7 @@
     color: hsl(0, 0%, 100%);
     box-sizing: border-box;
     font-family: Fira Sans;
+    text-decoration: none;
 }
 
 /* Variables */
@@ -20,13 +21,12 @@ header{
     position: relative;
 }
 
-a {
-    text-decoration: none;
+nav a {
     color: hsl(0, 0%, 100%);
     opacity: 100%;
 }
 
-a:hover, #bt_download:hover{
+nav a:hover, #bt_download:hover{
     background-color: hsl(51, 100%, 49%);
     color: hsl(0, 0%, 0%);
     padding: 0.7rem;
@@ -34,7 +34,6 @@ a:hover, #bt_download:hover{
     border-radius: 5%;
     box-shadow: 0rem 0.2rem 0.3rem hsl(0, 0%, 100%);
     text-align: center;
-    text-decoration: overline;
 }
 
 nav {
@@ -160,4 +159,18 @@ h1 {
 }
 #skills p{
     padding-left: 0.8rem;
+}
+
+footer ul li{
+    position: flex;
+    display: inline;
+} 
+
+footer ul{
+    text-align: center;
+    padding-bottom: 2rem;
+}
+.icon_footer{
+    width: 40px;
+    height: 40px;
 }
