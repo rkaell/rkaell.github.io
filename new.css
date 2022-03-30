@@ -81,7 +81,6 @@ img#logo {
 .home, .sobre_mim{
     padding-top: 8rem;
     background-image: url(imagens/transferir.jpeg);
-    background-size: 100%;
 }
 
 #banner {
@@ -89,44 +88,44 @@ img#logo {
     justify-content: center;
     justify-items: center;
     align-items: center;
-    margin: 2rem, 2rem;
-    padding-bottom: 1rem;
-    padding-top: 2rem;
+    margin: 2em, 2em;
+    padding-bottom: 1em;
+    padding-top: 2em;
 }
 
 
 #about {
-    font-size: 1.5rem;
-    box-shadow: 0.1rem 0.1rem 0.1rem hsl(0, 0%, 99%);
+    font-size: 1.5em;
+    box-shadow: 0.1em 0.1em 0.1em hsl(0, 0%, 99%);
     background: conic-gradient(hsl(44, 100%, 16%) 20deg, transparent 120deg);
-    border-radius: 0.5rem;
-    padding: 0.5rem;
+    border-radius: 0.5em;
+    padding: 0.5em;
     flex-wrap: wrap;
     background-color: hsla(0, 0%, 0%,0.8);
 }
 
 .organizador{
-    margin: 0rem 10rem 0rem;
-    padding-bottom: 2rem;
+    margin: 0em 10em 0em;
+    padding-bottom: 2em;
     text-align: justify;
-    font-size: 1rem;
+    font-size: 1em;
 }
 
 .video{
-    font-size: 2rem;
+    font-size: 2em;
     text-align: center;
-    margin: 0rem 10rem 0rem;
-    padding-bottom: 2rem;
+    margin: 0rem 10em 0em;
+    padding-bottom: 2em;
 }
 iframe{
     width: 100%;
-    height: 30rem;
-    border-radius: 0.5rem;
+    height: 30em;
+    border-radius: 0.5em;
     border: 3px solid hsl(54, 100%, 39%);
 }
 h1 {
     text-align: center;
-    font-size: 3rem;
+    font-size: 3em;
 }
 #kaell2{
     width: 100%;
@@ -135,42 +134,68 @@ h1 {
     width: 100%;
     background-color: hsl(54, 100%, 39%);
     color: hsl(0, 0%, 0%);
-    padding: 1rem;
+    padding: 1em;
     border-radius: 5%;
     text-align: center;
 }
 .sobre_mim{
-    height: 40rem;
+    height: 40em;
     background-image: url(imagens/kaell2.jpg);
     background-size: 100%;
 }
 
 #skills{
-    margin-left: 5rem;
+    margin-left: 5em;
     width: 40%;
-    font-size: 1rem;
-    box-shadow: 0.1rem 0.1rem 0.1rem hsl(0, 0%, 99%);
+    font-size: 1em;
+    box-shadow: 0.1em 0.1em 0.1em hsl(0, 0%, 99%);
     background: conic-gradient(hsl(44, 100%, 16%) 20deg, transparent 120deg);
-    border-radius: 0.5rem;
-    padding: 1rem;
+    border-radius: 0.5em;
+    padding: 1em;
     flex-wrap: wrap;
     background-color: hsla(0, 0%, 0%,0.9);
     text-align: justify;
 }
 #skills p{
-    padding-left: 0.8rem;
+    padding-left: 0.8em;
 }
 
 footer ul li{
+    padding-top: 1em;
     position: flex;
     display: inline;
 } 
 
 footer ul{
     text-align: center;
-    padding-bottom: 2rem;
+    padding-bottom: 2em;
 }
 .icon_footer{
     width: 40px;
     height: 40px;
+}
+
+@media screen and (max-width: 450px){
+    nav ul li{ 
+        display: flex; 
+        padding-top: 1em;  
+        align-items: center;
+        text-align: center;
+        justify-content: center;
+        border: none;
+    }
+    .home, .sobre_mim{
+        padding-top: 15em;
+    }
+    img#logo {
+        height: 30em;
+        width: 30em;
+        border-radius: none;
+        border: 3px solid hsl(0, 0%, 100%);
+        background: none;
+    }
+    img{
+        width: 100%;
+    }
+
 }
