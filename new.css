@@ -257,6 +257,7 @@ footer ul{
     }
 
     img#logo {
+        margin: 0 2rem 0 2rem;
         display: block;
         width: 20em;
         height: 20rem;
