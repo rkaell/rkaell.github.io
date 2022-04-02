@@ -1,11 +1,15 @@
 /* Reset css page */
 *{
-    margin: 0;
-    padding: 0;
+    margin: 0px;
+    padding: 0px;
     color: hsl(0, 0%, 100%);
     box-sizing: border-box;
     font-family: Fira Sans;
+<<<<<<< HEAD
     margin: auto;
+=======
+    text-decoration: none;
+>>>>>>> 594931c294a9f054a486a38a2dc8b297f0d2117c
 }
 
 /* Variables */
@@ -20,30 +24,13 @@ main{
     min-width: 300px;
 }
 /* header and menu */
-header{
-    position: relative;
-}
-
-a {
-    text-decoration: none;
-    color: hsl(0, 0%, 100%);
-    opacity: 100%;
-}
-
-a:hover, #bt_download:hover{
-    background-color: hsl(51, 100%, 49%);
-    color: hsl(0, 0%, 0%);
-    padding: 0.7rem;
-    opacity: 80%;
-    border-radius: 5%;
-    box-shadow: 0rem 0.2rem 0.3rem hsl(0, 0%, 100%);
+header, nav{
+    position: fixed;
     text-align: center;
-    text-decoration: overline;
 }
 
 nav {
     font-size: 1rem;
-    position: fixed;
     width: 100%;
     background-color: hsla(0, 0%, 0%, 0.9);
     text-align: center; 
@@ -55,6 +42,20 @@ nav {
     justify-content: space-between;
     border-bottom: 1px solid hsl(0, 0%, 100%);
 }
+nav li a {
+    color: hsl(0, 0%, 100%);
+    opacity: 100%;
+}
+
+nav a:hover, #bt_download:hover{
+    background-color: hsl(51, 100%, 49%);
+    color: hsl(0, 0%, 0%);
+    padding: 0.7rem;
+    opacity: 80%;
+    border-radius: 5%;
+    box-shadow: 0rem 0.2rem 0.3rem hsl(0, 0%, 100%);
+}
+
 
 nav li {
     display: inline;
@@ -83,10 +84,9 @@ img#logo {
     background: conic-gradient(hsl(44, 100%, 16%) 20deg, transparent 120deg);
 }
 
-.home, .sobre_mim{
+.home{
     padding-top: 8rem;
     background-image: url(imagens/transferir.jpeg);
-    background-size: 100%;
 }
 
 #banner {
@@ -94,75 +94,135 @@ img#logo {
     justify-content: center;
     justify-items: center;
     align-items: center;
-    margin: 2rem, 2rem;
-    padding-bottom: 1rem;
-    padding-top: 2rem;
+    margin: 2em, 2em;
+    padding-bottom: 1em;
+    padding-top: 2em;
 }
 
 
 #about {
-    font-size: 1.5rem;
-    box-shadow: 0.1rem 0.1rem 0.1rem hsl(0, 0%, 99%);
+    font-size: 1.5em;
+    box-shadow: 0.1em 0.1em 0.1em hsl(0, 0%, 99%);
     background: conic-gradient(hsl(44, 100%, 16%) 20deg, transparent 120deg);
-    border-radius: 0.5rem;
-    padding: 0.5rem;
+    border-radius: 0.5em;
+    padding: 0.5em;
     flex-wrap: wrap;
     background-color: hsla(0, 0%, 0%,0.8);
 }
 
 .organizador{
-    margin: 0rem 10rem 0rem;
-    padding-bottom: 2rem;
+    margin: 0em 10em 0em;
+    padding-bottom: 2em;
     text-align: justify;
-    font-size: 1rem;
+    font-size: 1em;
 }
 
 .video{
-    font-size: 2rem;
+    font-size: 2em;
     text-align: center;
-    margin: 0rem 10rem 0rem;
-    padding-bottom: 2rem;
+    padding: 0.5em;
 }
 iframe{
-    width: 100%;
-    height: 30rem;
-    border-radius: 0.5rem;
+    width: 40rem;
+    height: 10em;
+    border-radius: 0.5em;
     border: 3px solid hsl(54, 100%, 39%);
 }
 h1 {
     text-align: center;
-    font-size: 3rem;
+    font-size: 3em;
 }
-#kaell2{
-    width: 100%;
+#kaell{
+    background-image: url(imagens/transferir.jpeg);
 }
 #bt_download{
     width: 100%;
     background-color: hsl(54, 100%, 39%);
     color: hsl(0, 0%, 0%);
-    padding: 1rem;
+    padding: 1em;
     border-radius: 5%;
     text-align: center;
 }
 .sobre_mim{
-    height: 40rem;
-    background-image: url(imagens/kaell2.jpg);
+    height: 40em;
     background-size: 100%;
     background-repeat: no-repeat;
 }
 
 #skills{
-    margin-left: 5rem;
+    margin-left: 5em;
     width: 40%;
-    font-size: 1rem;
-    box-shadow: 0.1rem 0.1rem 0.1rem hsl(0, 0%, 99%);
-    background: conic-gradient(hsl(44, 100%, 16%) 20deg, transparent 120deg);
-    border-radius: 0.5rem;
-    padding: 1rem;
+    font-size: 1em;
+    box-shadow: 0.1em 0.1em 0.1em hsl(0, 0%, 99%);
+    background: conic-gradient(hsl(43, 100%, 5%) 20deg, transparent 120deg);
+    border-radius: 0.5em;
+    padding: 1em;
     flex-wrap: wrap;
     background-color: hsla(0, 0%, 0%,0.9);
     text-align: justify;
 }
 #skills p{
-    padding-left: 0.8rem;
+    padding-left: 0.8em;
+}
+
+footer ul li{
+    padding-top: 1em;
+    position: flex;
+    display: inline;
+} 
+
+footer ul{
+    text-align: center;
+    padding-bottom: 2em;
+}
+.icon_footer{
+    width: 40px;
+    height: 40px;
+}
+
+@media screen and (max-width: 450px){
+    body{
+        border: 0px;
+        margin: 0px;
+        padding: 2px;
+        text-align: justify;
+    }
+    header, nav{
+        position: fixed;
+        width: 100%;
+    }
+    nav li{
+        display: none;
+        font-size: 12px;
+        padding-bottom: 1em;
+        background-color: black;
+        border-right: none;
+    }
+
+    body > header > nav > div > ul > li:nth-child(1){
+        display: none;
+    }
+ 
+    iframe{
+        padding: 10px;
+        width: 100%;
+    }
+
+    img#logo {
+        display: block;
+        width: 20em;
+        height: 20rem;
+        border-radius: 20rem;
+        border: 3px solid hsl(0, 0%, 100%);
+        background: conic-gradient(hsl(44, 100%, 16%) 20deg, transparent 120deg);
+    }
+    #banner, #project1, #kaell, #contact, .organizador, .video{
+        display: block;
+        margin: 0;
+        padding: 0;
+        justify-content: center;
+        align-items: center;
+        align-content: center;
+        padding: 8px;
+    }
 }
