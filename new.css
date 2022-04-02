@@ -5,6 +5,7 @@
     color: hsl(0, 0%, 100%);
     box-sizing: border-box;
     font-family: Fira Sans;
+    margin: auto;
 }
 
 /* Variables */
@@ -14,7 +15,10 @@
 body{
     background-color: hsl(0, 0%, 0%, 0.8);
 }
-
+main{
+    max-width: 1000px;
+    min-width: 300px;
+}
 /* header and menu */
 header{
     position: relative;
@@ -144,6 +148,7 @@ h1 {
     height: 40rem;
     background-image: url(imagens/kaell2.jpg);
     background-size: 100%;
+    background-repeat: no-repeat;
 }
 
 #skills{
