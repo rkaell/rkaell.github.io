@@ -16,7 +16,6 @@ body{
     background-color: hsl(0, 0%, 0%, 0.8);
 }
 main{
-    max-width: 1000px;
     min-width: 300px;
 }
 /* header and menu */
@@ -156,7 +155,6 @@ h1 {
     cursor: pointer;
 }
 .sobre_mim{
-    height: auto;
     background-size: 100%;
     padding: 2rem;
     background-repeat: no-repeat;
@@ -182,6 +180,13 @@ h1 {
     padding-left: 0.8em;
 }
 
+#skills{
+    display: block;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+}
+
 footer ul li{
     position: flex;
     display: inline;
@@ -197,14 +202,15 @@ footer ul{
     width: 40px;
     height: 40px;
 }
-.digita{
+.digitar{
     width: 100%;
-    animation: digita 4s steps(40);
-    cursor: .4s step-end infinite alternate;
+    animation: digitar 2s steps(20);
+    cursor: .2s step-end infinite alternate;
     white-space: nowrap;
+    overflow: hidden;
 }
 
-@keyframes digita{
+@keyframes digitar {
     from{
         width: 0;
     }
@@ -265,7 +271,7 @@ footer ul{
         border: 3px solid hsl(0, 0%, 100%);
         background: conic-gradient(hsl(44, 100%, 16%) 20deg, transparent 120deg);
     }
-    #banner, #project1, #kaell, #contact, .organizador, .video, #skills, #eu, .sobre_mim{
+    #banner, #project1, #kaell, #contact, .organizador, .video, #skills, #eu, #eu2, .sobre_mim{
         display: block;
         margin: 0;
         padding: 0;
