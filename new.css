@@ -93,6 +93,7 @@ img#logo {
 .home{
     padding-top: 8rem;
     background-image: url(imagens/transferir.jpeg);
+    background-repeat: round;
 }
 
 #banner {
