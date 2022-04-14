@@ -1,0 +1,64 @@
+@media screen and (max-width: 450px){
+    body{
+        border: 0px;
+        margin: 0px;
+        padding: 2px;
+        text-align: justify;
+        overflow-x: hidden;
+    }
+    header, nav{
+        position: fixed;
+        width: 100%;
+    }
+    nav li{
+        display: inline;
+        letter-spacing: 1px;
+        font-size: 12px;
+        background-color: black;
+        border-right: none;
+        border: 1px solid #fff;
+    }
+    nav li:hover{
+        background-color: #fff;
+    }
+    nav li a:hover{
+        display: inline;
+        letter-spacing: 1px;
+        font-size: 15px;
+        background-color: #fff;
+        border-right: none;
+        border: none;
+        color: hsl(0, 0%, 0%);
+        padding: 2px;
+        opacity: 80%;
+        border-radius: 5%;
+        box-shadow: none;
+    }
+    iframe{
+        padding: 10px;
+        width: 100%;
+    }
+
+    img#logo {
+        margin: 0 2rem 0 2rem;
+        display: block;
+        width: 20em;
+        height: 20rem;
+        border-radius: 20rem;
+        border: 3px solid hsl(0, 0%, 100%);
+        background: conic-gradient(hsl(44, 100%, 16%) 20deg, transparent 120deg);
+    }
+    #banner, #project1, #kaell, #contact, .organizador, .video, #skills, #eu, #eu2, .sobre_mim{
+        display: block;
+        margin: 0;
+        padding: 0;
+        justify-content: center;
+        align-items: center;
+        align-content: center;
+        padding: 8px;
+    }
+    #skills{
+        width: 100%;
+        padding-top: 2rem;
+    }
+}
